@@ -11,6 +11,10 @@ namespace Robotporszívó
         static void Main(string[] args)
         {
 
+            Console.WriteLine("Robot - Beállítások:");
+            Console.WriteLine("Takarítás (C), Térkép (T), Újragenerálás (G), Porgram leállítása (S)");
+            Console.WriteLine("----------------------------------------------------------------------");
+            Console.ReadLine();
         }
     }
 }
