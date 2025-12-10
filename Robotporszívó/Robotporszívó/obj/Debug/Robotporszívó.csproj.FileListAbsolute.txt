@@ -1,0 +1,7 @@
+C:\Users\Maja\Desktop\Házi\11\br\robotporszivo\Robotporszívó\Robotporszívó\bin\Debug\Robotporszívó.exe.config
+C:\Users\Maja\Desktop\Házi\11\br\robotporszivo\Robotporszívó\Robotporszívó\bin\Debug\Robotporszívó.exe
+C:\Users\Maja\Desktop\Házi\11\br\robotporszivo\Robotporszívó\Robotporszívó\bin\Debug\Robotporszívó.pdb
+C:\Users\Maja\Desktop\Házi\11\br\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.csproj.AssemblyReference.cache
+C:\Users\Maja\Desktop\Házi\11\br\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.csproj.CoreCompileInputs.cache
+C:\Users\Maja\Desktop\Házi\11\br\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.exe
+C:\Users\Maja\Desktop\Házi\11\br\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.pdb
