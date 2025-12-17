@@ -50,7 +50,7 @@ namespace Robotporszívó
             else if (beallitas == 'G' || beallitas == 'g')
             {
                 Console.Clear();
-                Ujrageneralas();
+                terkep = Ujrageneralas(terkep);
             }
             else if (beallitas == 'S' || beallitas == 's')
             {
@@ -173,17 +173,18 @@ namespace Robotporszívó
             {
                 for (int j = 0; j < terkep.GetLength(1); j++)
                 {
-                    Console.Write($"{terkep[i,j]} ");
+                    Console.Write($"K ");
                 }
+                Console.WriteLine();
             }
             Console.ReadKey();
             Console.Clear();
         }
-        static void Ujrageneralas()
+        static int[,] Ujrageneralas(int[,] terkep)
         {
             Console.WriteLine("A robot újragenerálja a térképet...");
-            Console.ReadKey();
-            Console.Clear();
+            terkep = Generalas();
+            return terkep;
         }
     }
 }

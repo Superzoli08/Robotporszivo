@@ -5,3 +5,11 @@ C:\Users\Maja\Desktop\Házi\11\br\robotporszivo\Robotporszívó\Robotporszívó\
 C:\Users\Maja\Desktop\Házi\11\br\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.csproj.CoreCompileInputs.cache
 C:\Users\Maja\Desktop\Házi\11\br\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.exe
 C:\Users\Maja\Desktop\Házi\11\br\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.pdb
+C:\Users\b3vetzol\source\repos\robotporszivo\Robotporszívó\Robotporszívó\bin\Debug\Robotporszívó.exe.config
+C:\Users\b3vetzol\source\repos\robotporszivo\Robotporszívó\Robotporszívó\bin\Debug\Robotporszívó.exe
+C:\Users\b3vetzol\source\repos\robotporszivo\Robotporszívó\Robotporszívó\bin\Debug\Robotporszívó.pdb
+C:\Users\b3vetzol\source\repos\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.csproj.AssemblyReference.cache
+C:\Users\b3vetzol\source\repos\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.exe.config
+C:\Users\b3vetzol\source\repos\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.csproj.CoreCompileInputs.cache
+C:\Users\b3vetzol\source\repos\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.exe
+C:\Users\b3vetzol\source\repos\robotporszivo\Robotporszívó\Robotporszívó\obj\Debug\Robotporszívó.pdb
