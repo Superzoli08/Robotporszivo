@@ -14,12 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,7 +24,7 @@
               "RelativeDocumentMoniker": "Robotporsz\u00EDv\u00F3\\Program.cs",
               "ToolTip": "C:\\Users\\Maja\\Desktop\\H\u00E1zi\\11\\br\\robotporszivo\\Robotporsz\u00EDv\u00F3\\Robotporsz\u00EDv\u00F3\\Program.cs",
               "RelativeToolTip": "Robotporsz\u00EDv\u00F3\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAUwHIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-09T21:42:39.276Z",
               "EditorCaption": ""

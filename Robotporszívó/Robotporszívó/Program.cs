@@ -18,21 +18,7 @@ namespace Robotporszívó
                 Console.WriteLine("Robot - Beállítások:");
                 Console.WriteLine("Takarítás (C), Térkép (T), Újragenerálás (G), Kilépés (S)");
                 Console.Write("---------> ");
-
-<<<<<<< HEAD
                 valasztas = Convert.ToChar(Console.ReadLine());
-=======
-            }
-            else if (beallitas == 'G' || beallitas == 'g')
-            {
-                Console.Clear();
-                terkep = Ujrageneralas(terkep);
-            }
-            else if (beallitas == 'S' || beallitas == 's')
-            {
-                Console.WriteLine("A program leállt.");
-            }
->>>>>>> cc1bcb0f669b3fbbbef808d1f6bf1c0808eec6ee
 
                 while (valasztas != 'C' && valasztas != 'c' &&
                        valasztas != 'T' && valasztas != 't' &&
@@ -49,6 +35,7 @@ namespace Robotporszívó
                 }
                 else if (valasztas == 'T' || valasztas == 't')
                 {
+                    Console.Clear();
                     TerkepKirajzol(terkep);
                     Console.ReadKey();
                 }
@@ -63,6 +50,7 @@ namespace Robotporszívó
         {
             int n = 0;
             int m = 0;
+            Random rnd = new Random();
 
             while (n < 20 || n > 30)
             {
@@ -77,49 +65,42 @@ namespace Robotporszívó
             }
 
             int[,] terkep = new int[n, m];
-            Random rnd = new Random();
 
-            int szabad = 0;
-            int koszos = 0;
-
-            while (szabad == 0 || koszos == 0)
+            bool valid = false;
+            while (!valid)
             {
-                szabad = 0;
-                koszos = 0;
+                valid = true;
+                for (int i = 0; i < n; i++)
+                    for (int j = 0; j < m; j++)
+                    {
+                        int r = rnd.Next(100);
+                        if (r < 50) terkep[i, j] = '-';
+                        else if (r < 70) terkep[i, j] = 'b';
+                        else terkep[i, j] = 'k';
+                    }
 
                 for (int i = 0; i < n; i++)
                 {
                     for (int j = 0; j < m; j++)
                     {
-                        int r = rnd.Next(100);
-
-                        if (r < 50)
+                        if (terkep[i, j] == 'k')
                         {
-                            terkep[i, j] = '-';
-                            szabad++;
-                        }
-                        else if (r < 70)
-                        {
-                            terkep[i, j] = 'b';
-                        }
-                        else
-                        {
-                            terkep[i, j] = 'k';
-                            koszos++;
+                            bool elerheto = false;
+                            if (i > 0 && terkep[i - 1, j] == '-') elerheto = true;
+                            if (i < n - 1 && terkep[i + 1, j] == '-') elerheto = true;
+                            if (j > 0 && terkep[i, j - 1] == '-') elerheto = true;
+                            if (j < m - 1 && terkep[i, j + 1] == '-') elerheto = true;
+                            if (!elerheto) valid = false;
                         }
                     }
                 }
             }
 
             bool robotLetett = false;
-            int rx = 0;
-            int ry = 0;
-
             while (!robotLetett)
             {
-                rx = rnd.Next(n);
-                ry = rnd.Next(m);
-
+                int rx = rnd.Next(n);
+                int ry = rnd.Next(m);
                 if (terkep[rx, ry] == '-')
                 {
                     terkep[rx, ry] = 'r';
@@ -137,14 +118,14 @@ namespace Robotporszívó
 
         static int[,] Takaritas(int[,] terkep)
         {
+            int n = terkep.GetLength(0);
+            int m = terkep.GetLength(1);
+            Random rnd = new Random();
+
             int lepesek = 0;
             int feltakaritott = 0;
 
             int rx = 0, ry = 0;
-            int n = terkep.GetLength(0);
-            int m = terkep.GetLength(1);
-
-            // Robot pozíciójának keresése
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
@@ -157,72 +138,74 @@ namespace Robotporszívó
                 }
             }
 
-            // Logikus takarítás: sor és oszlop szerint végig minden koszos cellán
-            for (int i = 0; i < n; i++)
+            bool vanKosz = true;
+            while (vanKosz)
             {
-                for (int j = 0; j < m; j++)
+                vanKosz = false;
+
+                for (int i = 0; i < n; i++)
                 {
-                    if (terkep[i, j] == 'k')
+                    for (int j = 0; j < m; j++)
                     {
-                        // először sor szerint közelít
-                        while (rx != i)
+                        if (terkep[i, j] == 'k')
                         {
-                            terkep[rx, ry] = '-';
-                            if (rx < i) rx++; else rx--;
-                            if (terkep[rx, ry] == 'k') feltakaritott++;
-                            terkep[rx, ry] = 'r';
-                            lepesek++;
-                            Console.Clear();
-                            TerkepKirajzol(terkep);
-                            Thread.Sleep(100);
+                            vanKosz = true;
+                            break;
                         }
-
-                        // majd oszlop szerint
-                        while (ry != j)
-                        {
-                            terkep[rx, ry] = '-';
-                            if (ry < j) ry++; else ry--;
-                            if (terkep[rx, ry] == 'k') feltakaritott++;
-                            terkep[rx, ry] = 'r';
-                            lepesek++;
-                            Console.Clear();
-                            TerkepKirajzol(terkep);
-                            Thread.Sleep(100);
-                        }
-
-                        // takarítva
-                        terkep[rx, ry] = 'r';
                     }
+                    if (vanKosz) break;
+                }
+
+                if (!vanKosz) break;
+
+                int irany = rnd.Next(4);
+                int ujx = rx;
+                int ujy = ry;
+
+                if (irany == 0 && rx > 0) ujx = rx - 1;
+                if (irany == 1 && rx < n - 1) ujx = rx + 1;
+                if (irany == 2 && ry > 0) ujy = ry - 1;
+                if (irany == 3 && ry < m - 1) ujy = ry + 1;
+
+                if (terkep[ujx, ujy] != 'b')
+                {
+                    terkep[rx, ry] = '-';
+                    rx = ujx;
+                    ry = ujy;
+
+                    if (terkep[rx, ry] == 'k') feltakaritott++;
+
+                    terkep[rx, ry] = 'r';
+                    lepesek++;
+
+                    Console.Clear();
+                    TerkepKirajzol(terkep);
+                    Thread.Sleep(10);
                 }
             }
+
+            Console.Clear();
+            TerkepKirajzol(terkep);
+            Console.WriteLine();
+            Console.WriteLine($"Takarítás vége!");
+            Console.WriteLine($"Lépések száma: {lepesek}");
+            Console.WriteLine($"Feltakarított koszos mezők: {feltakaritott}");
+            Console.ReadKey();
             return terkep;
         }
 
-            static void TerkepKirajzol(int[,] terkep)
+
+
+        static void TerkepKirajzol(int[,] terkep)
         {
             for (int i = 0; i < terkep.GetLength(0); i++)
             {
                 for (int j = 0; j < terkep.GetLength(1); j++)
                 {
-<<<<<<< HEAD
                     Console.Write((char)terkep[i, j] + " ");
                 }
                 Console.WriteLine();
             }
-=======
-                    Console.Write($"K ");
-                }
-                Console.WriteLine();
-            }
-            Console.ReadKey();
-            Console.Clear();
-        }
-        static int[,] Ujrageneralas(int[,] terkep)
-        {
-            Console.WriteLine("A robot újragenerálja a térképet...");
-            terkep = Generalas();
-            return terkep;
->>>>>>> cc1bcb0f669b3fbbbef808d1f6bf1c0808eec6ee
         }
     }
 }
