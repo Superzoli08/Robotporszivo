@@ -8,7 +8,7 @@ namespace Robotporszívó
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-
+            
             int[,] terkep = Generalas();
             char valasztas = ' ';
 
@@ -48,6 +48,7 @@ namespace Robotporszívó
 
         static int[,] Generalas()
         {
+            Console.WriteLine("| ROBOTPORSZÍVÓ TAKARÍTÁS |");
             int n = 0;
             int m = 0;
             Random rnd = new Random();
@@ -178,9 +179,6 @@ namespace Robotporszívó
                     terkep[rx, ry] = 'r';
                     lepesek++;
 
-                    Console.Clear();
-                    TerkepKirajzol(terkep);
-                    Thread.Sleep(10);
                 }
             }
 
@@ -198,6 +196,7 @@ namespace Robotporszívó
 
         static void TerkepKirajzol(int[,] terkep)
         {
+            Console.WriteLine("Térkép: ");
             for (int i = 0; i < terkep.GetLength(0); i++)
             {
                 for (int j = 0; j < terkep.GetLength(1); j++)
